@@ -1,12 +1,14 @@
 import './index.css'
 import {Component} from 'react'
 import LatestMatch from '../LatestMatch'
-import MatchCard from '../MatchCard'
+
 class TeamMatches extends Component {
   state = {team: {}}
+
   componentDidMount() {
     this.teamMatches()
   }
+
   teamMatches = async () => {
     const {match} = this.props
     const {params} = match
@@ -14,16 +16,22 @@ class TeamMatches extends Component {
     const response = await fetch(`https://apis.ccbp.in/ipl/${id}`)
     const data = await response.json()
     console.log(data)
-    this.setState({team: data})
+    const formatedData = {
+      teamBannerUrl: data.team_banner_url,
+      latestMatchDetails: data.latest_match_details,
+      recentMatches: data.recent_matches,
+    }
+    this.setState({team: formatedData})
   }
+
   render() {
     const {team} = this.state
-    const {team_banner_url, latest_match_details, recent_matches} = team
-    console.log(latest_match_details)
+    const {teamBannerUrl, latestMatchDetails} = team
+    console.log(latestMatchDetails)
     return (
       <div className="team-container">
-        <img src={team_banner_url} className="banner" />
-        <LatestMatch latestMatches={latest_match_details}  />
+        <img src={teamBannerUrl} className="banner" alt="logo" />
+        <LatestMatch latestMatches={latestMatchDetails} />
       </div>
     )
   }

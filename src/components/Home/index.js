@@ -1,17 +1,27 @@
 import './index.css'
 import {Component} from 'react'
 import TeamCard from '../TeamCard'
+
 class Home extends Component {
   state = {iplTeamList: []}
+
   componentDidMount = () => {
     this.iplDetailsFunction()
   }
+
   iplDetailsFunction = async () => {
     const response = await fetch('https://apis.ccbp.in/ipl')
     const data = await response.json()
-    console.log(data.teams)
-    this.setState({iplTeamList: data.teams})
+    const finalData = data.teams
+    const formated = finalData.map(item => ({
+      name: item.name,
+      id: item.id,
+      teamImageUrl: item.team_image_url,
+    }))
+    console.log(formated)
+    this.setState({iplTeamList: formated})
   }
+
   render() {
     const {iplTeamList} = this.state
     return (
@@ -26,7 +36,7 @@ class Home extends Component {
         </div>
         <ul className="list-container">
           {iplTeamList.map(item => (
-            <TeamCard key={item.key} details={item} />
+            <TeamCard key={item.id} details={item} />
           ))}
         </ul>
       </div>
