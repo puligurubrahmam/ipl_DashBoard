@@ -5,24 +5,30 @@ const LatestMatch = props => {
   console.log(latestMatches)
   return (
     <div className="latest_matches_container">
-      <div>
-        <h1>{latestMatches.competing_team}</h1>
-        <p>{latestMatches.date}</p>
-        <p>{latestMatches.venue}</p>
-        <p>{latestMatches.result}</p>
+      <div className="forSmall">
+        <div>
+          <p className="competingTeam">{latestMatches.competing_team}</p>
+          <p className="para1">{latestMatches.date}</p>
+          <p className="para2">{latestMatches.venue}</p>
+          <p className="para2">{latestMatches.result}</p>
+        </div>
+        <div className="image-container">
+          <img
+            src={latestMatches.competing_team_logo}
+            alt={`latest match ${latestMatches.competing_team}`}
+            className="competingTeamLogo"
+          />
+        </div>
       </div>
       <div>
-        <img src={latestMatches.competing_team_logo} alt="logo" />
-      </div>
-      <div>
-        <h1>First Innings</h1>
-        <p>{latestMatches.first_innings}</p>
-        <h1>Second Innings</h1>
-        <p>{latestMatches.second_innings}</p>
-        <h1>Man Of The Match</h1>
-        <p>{latestMatches.man_of_the_match}</p>
-        <h1>Umpires</h1>
-        <p>{latestMatches.umpires}</p>
+        <p className="para1">First Innings</p>
+        <p className="para2">{latestMatches.first_innings}</p>
+        <p className="para1">Second Innings</p>
+        <p className="para2">{latestMatches.second_innings}</p>
+        <p className="para1">Man Of The Match</p>
+        <p className="para2">{latestMatches.man_of_the_match}</p>
+        <p className="para1">Umpires</p>
+        <p className="para2">{latestMatches.umpires}</p>
       </div>
     </div>
   )

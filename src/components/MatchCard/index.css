@@ -1,1 +1,55 @@
-/* Write your CSS here */
+.matchCard {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #0f172a;
+  margin: 10px;
+  width: 250px;
+}
+.matchCardLogo {
+  height: 100px;
+  width: 100px;
+}
+.para1-matchcard {
+  color: #ffffff;
+  font-family: 'Bree Serif';
+  font-size: 30px;
+}
+.para2-matchcard {
+  color: #ffffff;
+  font-family: 'Bree Serif';
+  font-size: 20px;
+}
+.won {
+  color: #18ed66;
+}
+.lost {
+  color: #e31a1a;
+}
+@media screen and (max-width: 767px) {
+  .matchCard {
+    width: 45%;
+    padding: 5px;
+    margin: 6px;
+  }
+  .para1-matchcard {
+    font-size: 16px;
+  }
+  .para2-matchcard {
+    font-size: 12px;
+  }
+  .won {
+    font-size: 12px;
+  }
+  .lost {
+    font-size: 12px;
+  }
+  .matchCardLogo {
+    height: 50px;
+    width: 50px;
+  }
+}

@@ -22,3 +22,20 @@
   width: 40%;
   margin: 10px;
 }
+@media screen and (max-width:767px)
+{
+  .team-logo{
+    height: 50px;
+    width: 50px;
+  }
+  .team-name{
+    font-size: 12px;
+  }
+  .list-item{
+    padding: 5px;
+  }
+  .link{
+    width: 45%;
+    margin: 5px;
+  }
+}
